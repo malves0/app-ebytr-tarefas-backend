@@ -16,7 +16,15 @@ const update = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+const exclude = (req, res, next) => {
+  const { id } = req.params;
+  Tarefas.exclude(id)
+    .then((tarefa) => res.status(SUCCESS_OK).json(tarefa))
+    .catch((err) => next(err));
+};
+
 module.exports ={
   create,
-  update
+  update,
+  exclude,
 }

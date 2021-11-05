@@ -19,7 +19,17 @@ const update = async (data) => {
   return null;
 };
 
-module.exports = {
-  create,
-  update
+const exclude = async (id) => {
+  const tarefaRemovida = connection()
+    .then((db) => db.collection('tarefas').deleteOne({ _id: ObjectId(id) }));
+
+  if (tarefaRemovida.modifiedCount) return {};
+
+  return null
 };
+
+module.exports ={
+  create,
+  update,
+  exclude,
+}

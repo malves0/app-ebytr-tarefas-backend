@@ -3,6 +3,7 @@ const { Tarefas } = require('../controllers');
 
 router
   .post('/', Tarefas.create)
-  .put('/:id', Tarefas.update);
+  .put('/:id', Tarefas.update)
+  .delete('/:id', Tarefas.exclude);
 
 module.exports = router;
