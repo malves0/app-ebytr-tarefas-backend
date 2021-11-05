@@ -2,6 +2,6 @@ const router = require('express').Router();
 const { Tarefas } = require('../controllers');
 
 router
-  .post('/', Tarefas.getById);
+  .post('/', Tarefas.create);
 
 module.exports = router;
